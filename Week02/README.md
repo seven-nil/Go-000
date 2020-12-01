@@ -26,10 +26,13 @@
 
 **调用顺序：api —> service —> dao 发生错误，层层返回。**
 
-**1.最基本的查询方法中不进行 wrap **
-**2.但在 dao 层进行查询时出现错误，则 wrap 携带信息返回上层 **
-**3. service 层直接返回从dao 获取的信息 **
-**4. api 层判断 err,发现不为空则 log.Fatal(err),err 为空则正常返回数据 **
+**1.最基本的查询方法中不进行 wrap**
+
+**2.但在 dao 层进行查询时出现错误，则 wrap 携带信息返回上层**
+
+**3. service 层直接返回从dao 获取的信息**
+
+**4. api 层判断 err,发现不为空则 log.Fatal(err),err 为空则正常返回数据**
 
 ``` go
 // ./dao/dao.go
