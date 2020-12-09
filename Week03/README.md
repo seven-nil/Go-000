@@ -25,7 +25,7 @@ func main() {
 		serverErr  = make(chan error, 1)
 		httpServer = http.Server{Addr: "0.0.0.0:8080"}
 		signalChan = make(chan os.Signal, 1)
-		erErr      error
+		egErr      error
 	)
 
 	eg.Go(func() error {
@@ -51,12 +51,11 @@ func main() {
 		return nil
 	})
 
-	erErr = eg.Wait()
-	if erErr != nil {
-		log.Fatal(erErr)
+	egErr = eg.Wait()
+	if egErr != nil {
+		log.Fatal(egErr)
 	}
 
 }
-
 
 ```
